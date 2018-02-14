@@ -9,6 +9,12 @@
     padding-right: 15px;
 }
 
+h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 80px;
+    margin-left: -33px;
+}
+
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
@@ -20,5 +26,196 @@
 input,
 select,
 textarea {
-    max-width: 280px;
+    max-width: 600px;
+}
+
+.navbar-inverse {
+    background-color: transparent;
+    border: none;
+}
+
+.LockOff {
+    display: none;
+    visibility: hidden;
+}
+
+.LockOn {
+    display: block;
+    visibility: visible;
+    position: absolute;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ccc;
+    text-align: center;
+    color: darkred;
+    font-weight: 800;
+    padding-top: 20%;
+    filter: alpha(opacity=14);
+    opacity: 0.14;
+}
+
+
+#relate {
+    position: relative;
+}
+
+#bitlogo {
+    position: relative;
+    left: 45%;
+}
+
+/*#*/
+#logo {
+    height: 60px;
+    width: auto;
+    background-color: rgb(255,255,255);
+    border-radius: 5px;
+    padding: 10px 10px 10px 10px;
+    right: 30px;
+    bottom: 20px;
+    position: fixed;
+}
+
+#logoblink {
+    height: 60px;
+    width: auto;
+    background-color: rgb(255,255,255);
+    border-radius: 5px;
+    padding: 10px 10px 10px 10px;
+    right: 30px;
+    bottom: 20px;
+    position: fixed;
+}
+
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.blink {
+    animation: blink 1s;
+    animation-iteration-count: infinite;
+}
+
+.minFont {
+    color: #6495ED;
+    font-family: system-ui;
+    font-weight: bold;
+}
+
+#myProgress {
+    width: 86%;
+    background-color: #b3b3b3; /*#ddd; */
+}
+
+#BarOne {
+    width: 2%;
+    height: 30px;
+    background-color: #6495ED; /*#4CAF50;*/
+}
+
+#BarTwo {
+    width: 9%;
+    height: 30px;
+    background-color: #6495ED; /*#4CAF50;*/
+}
+
+#BarThree {
+    width: 15%;
+    height: 30px;
+    background-color: #6495ED; /*#4CAF50;*/
+}
+
+#BarFour {
+    width: 35%;
+    height: 30px;
+    background-color: #6495ED; /*#4CAF50;*/
+}
+
+#BarFive {
+    width: 60%;
+    height: 30px;
+    background-color: #6495ED; /*#4CAF50;*/
+}
+
+#BarSix {
+    width: 70%;
+    height: 30px;
+    background-color: #6495ED; /*#4CAF50;*/
+}
+
+#BarSeven {
+    width: 90%;
+    height: 30px;
+    background-color: #6495ED; /*#4CAF50;*/
+}
+
+#BarDone {
+    width: 100%;
+    height: 30px;
+    background-color: #6495ED; /*#4CAF50;*/
+}
+
+
+body {
+    background: url(Hand-with-calculator.jpg) no-repeat; /*url("calculator-calculation-insurance-finance-53621.jpeg") no-repeat; */
+    background-size: 100%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.control-label {
+    font-family: 'Cinzel', serif;
+    font-size: 34px;
+    padding-top: 3px;
+    background-color: rgb(255,255,255);
+    opacity: 0.7;
+    border-radius: 5px;
+}
+
+.form-control {
+    font-size: 37px;
+    height: 56px;
+}
+
+input,
+textarea {
+    width: 600px;
+}
+
+.btn-width {
+    font-family: 'Cinzel', serif;
+    width: 250px;
+    font-size: 35px;
+}
+
+.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default {
+    background-color: #16821d;
+}
+
+    .btn, btn-default, btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default .form-horizontal {
+        background-color: #16821d;
+    }
+
+
+footer {
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+}
+
+.left-input-width {
+    width: 350px;
 }

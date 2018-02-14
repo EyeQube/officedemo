@@ -1,31 +1,142 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@model officedemo.Viewmodels.Information
+
+@{
+    ViewBag.Title = "Office Bot 3000";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+
+@* <img id="bit" src="~/Content/Big_blue_black_BIT.png" alt="bitoreq_logo" width="70" height="70" style="display:none">*@  @*none*@
+@* //<img height="70" width="70" alt="bitoreq_logo" src="@Url.Content("~/Content/Big_blue_black_BIT.png")" />*@
+
+
+@{
+    var robotDone = @"C:\Bitoreq\process_start.txt";
+
+    var one = @"C:\Bitoreq\One.txt";
+    var two = @"C:\Bitoreq\two.txt";
+    var three = @"C:\Bitoreq\three.txt";
+    var four = @"C:\Bitoreq\four.txt";
+    var five = @"C:\Bitoreq\five.txt";
+    var six = @"C:\Bitoreq\six.txt";
+    var seven = @"C:\Bitoreq\seven.txt";
+    var eight = @"C:\Bitoreq\eight.txt";
+
+    if (System.IO.File.Exists(robotDone))
+    {
+        <div class="LockOn"></div>
+
+        <div id="relate"><img id="bitlogo" class="blink" src="~/Content/Robin_color.gif" alt="bitoreq_logo" width="95" height="70" style="display:block"></div>
+        <div class="row"><h5 class="blink"><font color="#6495ED" font-family="system-ui"><b>ROBIN JOBBAR NU...</b></font></h5></div>
+        <div class="row"><h6><font color="#6495ED" font-family="system-ui"><b>VÄNLIGEN LÅT MUSEN STÅ STILLA TILLS JAG BLIR FÄRDIG MED RAPPORTEN, TACK! &nbsp; - ROBIN</b></font></h6></div>
+
+        <div id="myProgress" class="row">
+
+            @if (System.IO.File.Exists(one))
+            {
+                <div id="BarOne"></div>
+            }
+            @if (System.IO.File.Exists(two))
+            {
+                <div id="BarTwo"></div>
+            }
+            @if (System.IO.File.Exists(three))
+            {
+                <div id="BarThree"></div>
+            }
+            @if (System.IO.File.Exists(four))
+            {
+                <div id="BarFour"></div>
+            }
+            @if (System.IO.File.Exists(five))
+            {
+                <div id="BarFive"></div>
+            }
+            @if (System.IO.File.Exists(six))
+            {
+                <div id="BarSix"></div>
+            }
+            @if (System.IO.File.Exists(seven))
+            {
+                <div id="BarSeven"></div>
+            }
+            @if (System.IO.File.Exists(eight))
+            {
+                <div id="BarDone"></div>
+            }
+
+
+        </div>
+
+    }
+}
+
+
+<h1>Smartare Rapportering</h1>
+
 
 <div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Reseller, htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col col-md-8">
+                    @Html.DropDownListFor(model => model.SelectedResellerId, new SelectList(@Model.Reseller, "Value", "Text", Model.SelectedResellerId), "- ingen vald -", htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Reseller, null, new { @class = "text-danger" })
+                </div>
+            </div>
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Month, htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col col-md-8">
+                    @Html.DropDownListFor(model => model.SelectedMonthId, new SelectList(@Model.Month, "Value", "Text", Model.SelectedMonthId), "- ingen vald -", htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Month, null, new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Sales, htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.Sales, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Sales, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Order, htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.Order, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Order, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Costs, htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.Costs, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Costs, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @type = "email" } })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-4 col-md-1">
+                    <input type="submit" id="submit" value="Rapportera" class="btn-width btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
 </div>
